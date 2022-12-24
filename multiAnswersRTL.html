@@ -1,29 +1,31 @@
 <div class="mainQueCont" dir="rtl">
     <div class="upperCont">
-        <div></div>
+        <div>שאלה מספר 1</div>
         <div id="attempts"></div>
     </div>
-<p class="ques-text"> text text text text text</p>
+<p class="ques-text"> תוכן שאלה מספר 1: טקסט טקסט טקסט</p>
 <div id="answers-container">
-<div><input type="radio" id="ans1" name="ans">Answer 01-Text Text Text Text Text Text Text Text Text Text Text Text</div>
-<div><input type="radio" id="ans2" name="ans">Answer 02-Text Text Text Text Text Text Text Text Text Text Text Text</div>
-<div><input type="radio" id="ans3" name="ans">Answer 03-Text Text Text Text Text Text Text Text Text Text Text Text</div>
-<div><input type="radio" id="ans4" name="ans">Answer 04-Text Text Text Text Text Text Text Text Text Text Text Text</div>
+<div><input type="radio" id="ans1" name="ans">תשובה 1: טקסט טקסט טקסט טקסט</div>
+<div><input type="radio" id="ans2" name="ans">תשובה 2: טקסט טקסט טקסט טקסט</div>
+<div><input type="radio" id="ans3" name="ans">תשובה 3: טקסט טקסט טקסט טקסט</div>
+<div><input type="radio" id="ans4" name="ans">תשובה 4: טקסט טקסט טקסט טקסט</div>
 </div>
 <div class="btnsCont">
-<div id="btnsubmit" class="btnsA">submit</div>&nbsp;
-<div id="tryagain" class="btnsA">try again</div></div>
+    <br>
+<div id="btnsubmit" class="btnsA">בדיקת תשובה</div>&nbsp;&nbsp;
+<div id="tryagain" class="btnsA">נסה שוב</div></div>
 
 <div class="mashov-container">
-<div id="mash1" class="hidden correct">This is the mashov1 text ...... </div>
-<div id="mash2" class="hidden wrong">This is the mashov2 text ...... </div>
-<div id="mash3" class="hidden wrong">This is the mashov3 text ...... </div>
-<div id="mash4" class="hidden wrong">This is the mashov4 text ...... </div>
+<div id="mash1" class="hidden correct">משוב על תשובה 1 </div>
+<div id="mash2" class="hidden wrong">משוב על תשובה 2</div>
+<div id="mash3" class="hidden wrong">משוב על תשובה 3</div>
+<div id="mash4" class="hidden wrong">משוב על תשובה 4 </div>
+</div>
 </div>
 <script>
 var clickedAnswer=0;
 var attemptsNum=2;
-document.getElementById("attempts").innerText=`Attempt: ${attemptsNum}`;
+document.getElementById("attempts").innerText=`מספר ניסיונות:${attemptsNum}`;
     document.getElementById("ans1").addEventListener("click",function(){ clickedAnswer=1; });
     document.getElementById("ans2").addEventListener("click",function(){ clickedAnswer=2; });
     document.getElementById("ans3").addEventListener("click",function(){ clickedAnswer=3; });
@@ -37,24 +39,30 @@ function handleSubmitClick (){
 document.getElementById(`mash${clickedAnswer}`).classList.remove("hidden");
    document.getElementById(`mash${clickedAnswer}`).style.color="red";
    document.getElementById("answers-container").classList.add("disableddiv");
-   attemptsNum--;document.getElementById("attempts").innerText=`Attempt: ${attemptsNum}`;
+   attemptsNum--;document.getElementById("attempts").innerText=`מספר ניסיונות:${attemptsNum}`;
    if(attemptsNum==0) document.getElementById("tryagain").classList.add("hidden");
 }
    </script>
 <style>
-    .upperCont{
+     .mainQueCont{width: 800px !important ;min-height: 400px !important; background-color: rgb(249, 241, 241);
+    margin: 0.5rem;padding: 1rem !important;border-radius: 1rem !important;
+     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    font-size: 26pt !important;
+    }
+.upperCont{
         width: 100% !important;
         display: flex;justify-content: space-between;align-items: center;
     }
-    .btnsCont{
+.btnsCont{
         display: flex; flex-direction: row;
         height: fit-content !important;
     }
-    .btnsA{padding: 1rem !important;color:white;width: fit-content !important;cursor: pointer; height: 1.5rem !important;
-    display: flex;justify-content: center;align-items: center;}
+.btnsA{padding: 1rem !important;color:black;width: fit-content !important;cursor: pointer; height: 2.5rem!important;
+    font-size: 20pt !important;
+    display: flex;justify-content: center;align-items: center;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;border-radius: 0.5rem;}
 #btnsubmit{background-color: red;}
 #tryagain{background-color: greenyellow;}
- .mainQueCont{width: fit-content !important;background-color: azure;margin: 0.5rem;padding: 2rem;}
+
  .ques-text{font-weight: bolder;}
 .hidden{display: none !important;color:red;}
 #answers-container{
@@ -63,17 +71,3 @@ display: flex;flex-direction: column;direction: rtl;width: fit-content !importan
 .disableddiv{pointer-events: none;opacity: 0.4;
 }</style>
     
-
-
-
-<!-- <script type="text/javascript">
-   let btn=document.getElementById("f2af6e06-d91b-4a25-93dd-db0ac3b8cf5f");
-    let textItem=document.getElementById("63a5ceacbfc23c001af72cf9");
-    btn.addEventListener("click",()=>{
-        btn.style.backgroundColor="red";
-    })
-</script> -->
-
-
-<!-- <script> function func (){document.getElementById("div1").style.color = "pink !important"};
-document.getElementById("div1").addEventListener("click",func);</script><div id="div1">text by div</div><style>#div1{color:red !important;}</style> -->
