@@ -1,18 +1,99 @@
-/////This timer works in genially///////
-<script>setTimeout(function shesmo(){
-    document.getElementById("a575ebdf-64ec-4ee7-b1e1-6ce2fc756d6c").style.display="none";
-  },
-  4 * 1000
-);</script>
 
 
-<div div="questionaire">
+<body>
+<div id="questionaire">
+    <div id="upperLayerCover" class="hidden">TimeOut!!</div>
+    <div id="thequecont">
     <div id="ques01">
-        <div id="upperDiv">
-            <div>מספר שאלה</div>
-            <div>מספר ניסיונות</div>
+        <div class="upperDiv">
+            <div>שלה מספר 1</div>
+            <div class="timerText">זמן נותר</div>
         </div>
-
-    </div>
-
+        <p>תוכן שאלה 1: טקסט טקסט טקסט</p>
+        <div class="answers-container">
+            <div><input type="radio" id="ans1" name="ans">תשובה 1: טקסט טקסט טקסט טקסט</div>
+            <div><input type="radio" id="ans2" name="ans">תשובה 2: טקסט טקסט טקסט טקסט</div>
+            <div><input type="radio" id="ans3" name="ans">תשובה 3: טקסט טקסט טקסט טקסט</div>
+            <div><input type="radio" id="ans4" name="ans">תשובה 4: טקסט טקסט טקסט טקסט</div>
+            </div>
+            <div class="btnsCont">
+            <div id="btnnext" class="btnsA">הבא</div>
+            </div>
 </div>
+    <div id="ques02" class="hidden">
+        <div class="upperDiv">
+            <div>שאלה מספר 2</div>
+            <div class="timerText">זמן נותר</div>
+        </div>
+        <p>תוכן שאלה 2: טקסט טקסט טקסט</p>
+        <div class="answers-container">
+            <div><input type="radio" id="ans1" name="ans">תשובה 1: טקסט טקסט טקסט טקסט</div>
+            <div><input type="radio" id="ans2" name="ans">תשובה 2: טקסט טקסט טקסט טקסט</div>
+            <div><input type="radio" id="ans3" name="ans">תשובה 3: טקסט טקסט טקסט טקסט</div>
+            <div><input type="radio" id="ans4" name="ans">תשובה 4: טקסט טקסט טקסט טקסט</div>
+            </div>
+            <div class="btnsCont">
+                <br>
+            <div id="btnsubmit" class="btnsA">סיום</div>&nbsp;&nbsp;</div>
+    </div>
+</div></div>
+</body>
+<style>
+#questionaire{
+    background-color: rgba(165, 42, 42, 0.39);
+    font-size: 20pt !important;border-radius: 1rem !important;
+direction: rtl !important;
+width: 20em !important;height:12em !important;
+margin: 1rem auto;
+padding: 1rem !important;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.upperDiv{
+    display: flex;flex-direction: row;justify-content: space-between !important;font-weight: bolder;
+}
+.btnsCont{
+        display: flex; flex-direction: row;width: 100% !important;justify-content: flex-end !important;
+        height: fit-content !important;
+    }
+.btnsA{padding: 1rem !important;color:black;width: fit-content !important;cursor: pointer; height: 1rem!important;
+    font-size: 20pt !important;
+    display: flex;justify-content: center;align-items: center;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 2px;border-radius: 0.5rem;}
+#btnsubmit, #btnnext{background-color: pink;}
+.hidden{
+    display: none !important;
+}
+#upperLayerCover{
+    pointer-events: none !important;
+    background-color: rgba(0, 0, 0, 0.623) !important;z-index: 100000 !important;
+    border-radius: 0.5rem;
+    width: 100%;height: 100% !important;
+    display: flex;justify-content: center;
+    align-items: center;
+}
+</style>
+<script>
+    var timerVal=20;
+    var timerContainers = document.getElementsByClassName("timerText");
+    for (let index = 0; index < timerContainers.length; index++) {
+        timerContainers[index].innerText=`זמן שנותר : ${timerVal} שניות`;
+    }
+    document.getElementsByClassName("timerText").innerText=`זמן שנותר : ${timerVal} שניות`;
+    var myInterval = setInterval(countDown, 1000);
+   function countDown(){
+            timerVal--;
+            if(timerVal ===0){
+             clearInterval(myInterval);
+            document.getElementById("upperLayerCover").classList.remove("hidden");
+            document.getElementById("thequecont").classList.add("hidden");
+}
+for (let index = 0; index < timerContainers.length; index++) {
+        timerContainers[index].innerText=`זמן שנותר : ${timerVal} שניות`;
+    }
+    };
+
+var btnNext=document.getElementById("btnnext");
+btnNext.addEventListener("click",function(){
+document.getElementById("ques02").classList.remove("hidden");
+document.getElementById("ques01").classList.add("hidden");
+})
+</script>
