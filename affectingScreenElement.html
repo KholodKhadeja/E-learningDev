@@ -1,0 +1,27 @@
+<div id="divCont">
+    <p id="clickNum">0</p>
+</div>
+<style>
+    #divCont{
+        width: 3em;height: 1.5em;
+        background-color: aliceblue;
+        border-radius: 0.5rem;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        display: flex;
+      text-align: center !important;
+        justify-content: center !important;
+        font-size: 20pt !important;
+    }
+    #clickNum{
+        width: 10rem;
+        border-radius: 0.5rem;
+        height: 2rem;
+    }
+</style>
+<script>
+    var num=0;
+    document.getElementById("genially-animated-6a3d7758-9f8e-4162-9536-24b24277d4de").addEventListener("click", function (){
+        num++;
+        document.getElementById("clickNum").innerText=num;
+    })
+</script>
